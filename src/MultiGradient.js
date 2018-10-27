@@ -75,7 +75,7 @@ export default function MultiGradient (target, colors) {
         child.style.top = isBackground ? 0 : position.top
         child.style.zIndex =  isBackground ? '-4' : (i > 0 && i < 3) ? '-1' : '-2'
         child.style.width = isBackground ? '100%' : width + 'px'
-        child.style.filter = isBackground ? 'brightness(0.7)' : 'blur(150px)'
+        child.style.filter = isBackground ? 'brightness(0.7)' : 'blur(' +  (parent.getBoundingClientRect().height / 2)  + 'px)'
         child.style.pointerEvents = 'none'
         child.style.transform = isBackground ? 'none' : 'scale(1.3)'
         child.style.height = isBackground ? '100%' : (parent.getBoundingClientRect().height / 2) + 'px'
