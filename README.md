@@ -16,9 +16,9 @@ npm i -S multigradient
 import MultiGradient from 'multigradient';
 
 // MultiGradient takes two arguments.
-// First argument is your selector of the element, can be a class, id or nested selector like '.example > div'
+// First argument is your selector of the element, can be a class, id or nested selector like '.example > div'.
 // Second argument is an array of strings of 4 colors or 6 colors to make 4-point gradient or 6-point gradient respectively.
-// Note: colors can be in hex value rgb values or hsl
+// Note: colors can be in hex value rgb values or hsl.
 
 //For QuadGradient or 4-point 
 MultiGradient('.target', ['#ff6060', '#00ff22', '#0000ff', '#ffff00'])

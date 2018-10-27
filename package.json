@@ -1,6 +1,6 @@
 {
   "name": "multigradient",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A utility to add multiple points gradient background to elements.",
   "main": "lib/index.js",
   "scripts": {
@@ -25,10 +25,11 @@
   "keywords": [
     "multigradient",
     "multiple gradient background",
-    "gradient maker"
+    "gradient maker",
+    "4 color gradient"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ferrousdesigner/stylemaker.git"
+    "url": "https://github.com/ferrousdesigner/multigradient.git"
   }
 }
