@@ -1,0 +1,34 @@
+{
+  "name": "multigradient",
+  "version": "0.0.1",
+  "description": "A utility to add multiple points gradient background to elements.",
+  "main": "lib/index.js",
+  "scripts": {
+    "start-js": "webpack-dev-server",
+    "build-js": "webpack --progress --colors --p",
+    "build": "npm-run-all build-js",
+    "tr-b": "node_modules/.bin/babel ./src/MultiGradient.js --presets @babel/preset-env --out-file lib/MultiGradient.js",
+    "transpile": "npm run tr-b && node_modules/.bin/babel ./src/index.js --presets @babel/preset-env --out-file lib/index.js"
+  },
+  "author": "ferrousdesigner",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.0-beta.6",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "keywords": [
+    "multigradient",
+    "multiple gradient background",
+    "gradient maker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ferrousdesigner/stylemaker.git"
+  }
+}
