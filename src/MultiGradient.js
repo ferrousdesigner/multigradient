@@ -75,11 +75,21 @@ export default function MultiGradient (target, colors) {
         child.style.top = isBackground ? 0 : position.top
         child.style.zIndex =  isBackground ? '-4' : (i > 0 && i < 3) ? '-1' : '-2'
         child.style.width = isBackground ? '100%' : width + 'px'
-        child.style.filter = isBackground ? 'brightness(0.7)' : 'blur(' +  (parent.getBoundingClientRect().height / 2)  + 'px)'
+        child.style.filter = isBackground ? 'brightness(0.7)' : 'blur(' +  getBlur(parent)  + 'px)'
         child.style.pointerEvents = 'none'
         child.style.transform = isBackground ? 'none' : 'scale(1.3)'
         child.style.height = isBackground ? '100%' : (parent.getBoundingClientRect().height / 2) + 'px'
         child.style.borderRadius = isBackground ? 0 : '100%'
         parent.appendChild(child)
+    }
+    function getBlur (parent) {
+        let height = parent.getBoundingClientRect().height
+        let width = parent.getBoundingClientRect().width
+        if( height > width) {
+            return height/8
+        }
+        else {
+            return width/8
+        }
     }
 }
