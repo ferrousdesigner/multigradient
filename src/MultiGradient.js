@@ -79,17 +79,10 @@ export default function MultiGradient (target, colors) {
         child.style.pointerEvents = 'none'
         child.style.transform = isBackground ? 'none' : 'scale(1.3)'
         child.style.height = isBackground ? '100%' : (parent.getBoundingClientRect().height / 2) + 'px'
-        child.style.borderRadius = isBackground ? 0 : '100%'
+        child.style.borderRadius = isBackground ? parent.style.borderRadius : '100%'
         parent.appendChild(child)
     }
     function getBlur (parent) {
-        let height = parent.getBoundingClientRect().height
-        let width = parent.getBoundingClientRect().width
-        if( height > width) {
-            return height/8
-        }
-        else {
-            return width/8
-        }
+        return parent.getBoundingClientRect().height > parent.getBoundingClientRect().width ? parent.getBoundingClientRect().height/8 : parent.getBoundingClientRect().width/8
     }
 }
