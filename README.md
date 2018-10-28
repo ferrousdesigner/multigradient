@@ -6,6 +6,18 @@
 
 ## Install
 
+Via CDN
+
+```bash
+<script src="https://cdn.jsdelivr.net/npm/multigradient@0.0.10/dist/multigradient.js"></script>
+
+// Minified Version
+
+<script src="https://cdn.jsdelivr.net/npm/multigradient@0.0.10/dist/multigradient.min.js"></script>
+```
+
+Via NPM
+
 ```bash
 npm i -S multigradient
 ```
@@ -20,7 +32,7 @@ import MultiGradient from 'multigradient';
 // Second argument is an array of strings of 4 colors or 6 colors to make 4-point gradient or 6-point gradient respectively.
 // Note: colors can be in hex value rgb values or hsl.
 // Third argument is the blending which can be adjusted based of the size on the element to smooth out the gradient.
-// Values for blend can be any one of the following strings: 'smooth', 'smoother', 'smoothest'. Default value is 'smooth.
+// Values for blend can be any one of the following strings: 'smooth', 'smoother', 'smoothest'. Default value is 'smooth'.
 
 //For QuadGradient or 4-point 
 MultiGradient('.target', ['#ff6060', '#00ff22', '#0000ff', '#ffff00'], 'smooth')
