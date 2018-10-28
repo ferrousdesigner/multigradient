@@ -30,9 +30,9 @@ import MultiGradient from 'multigradient';
 // MultiGradient takes three arguments.
 // First argument is your selector of the element, can be a class, id or nested selector like '.example > div'.
 // Second argument is an array of strings of 4 colors or 6 colors to make 4-point gradient or 6-point gradient respectively.
-// Note: colors can be in hex value rgb values or hsl.
-// Third argument is the blending which can be adjusted based of the size on the element to smooth out the gradient.
-// Values for blend can be any one of the following strings: 'smooth', 'smoother', 'smoothest'. Default value is 'smooth'.
+// Note: colors can be in hex value, rgba value, or hsla value.
+// Third is an optional string argument which is the blending and can be used to adjust blending of colors based of the size on the element.
+// Values for blending can be any one of the following strings: 'smooth', 'smoother', 'smoothest'. Default value is 'smooth'.
 
 //For QuadGradient or 4-point 
 MultiGradient('.target', ['#ff6060', '#00ff22', '#0000ff', '#ffff00'], 'smooth')
@@ -40,6 +40,6 @@ MultiGradient('.target', ['#ff6060', '#00ff22', '#0000ff', '#ffff00'], 'smooth')
 //For HexaGradient or 6-point 
 MultiGradient('.target', ['#ff6060', '#00ff22', '#0000ff', '#ffff00', '#f322ff', '#1e85e8'])
 
-//Note: Make sure you are calling the function after the DOM has been rendered
+//Note: Make sure you are calling the function after the DOM has been rendered.
 
 ```
