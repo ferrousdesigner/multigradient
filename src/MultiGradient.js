@@ -1,4 +1,4 @@
-export default function MultiGradient (target, colors) {
+export default function MultiGradient (target, colors, blend) {
     if(!target && !colors) {
         console.log('%c No paramters supplied.', 'color: #ff6060')
         return
@@ -22,7 +22,7 @@ export default function MultiGradient (target, colors) {
     });
     if(validColors.length > 0 && ((colors.length == 4) || (colors.length == 6)) && validColors.length === colors.length) {
         if(parent.style.position === '' || parent.style.position === 'unset' ) parent.style.position = 'relative'
-        parent.style.background = 'rgba(0,0,0,0.1)'
+        parent.style.background = 'rgba(0,0,0,0)'
         let frame = document.createElement('DIV')
         frame.style.position = 'absolute'
         frame.style.left = '0'
@@ -32,6 +32,7 @@ export default function MultiGradient (target, colors) {
         frame.style.zIndex = '-1'
         frame.style.pointerEvents = 'none'
         frame.style.overflow = 'hidden'
+        frame.style.borderRadius = parent.style.borderRadius || getComputedStyle(parent).borderRadius
         parent.appendChild(frame)
         parent = frame
         let fullWidth = parent.getBoundingClientRect().width
@@ -75,14 +76,37 @@ export default function MultiGradient (target, colors) {
         child.style.top = isBackground ? 0 : position.top
         child.style.zIndex =  isBackground ? '-4' : (i > 0 && i < 3) ? '-1' : '-2'
         child.style.width = isBackground ? '100%' : width + 'px'
-        child.style.filter = isBackground ? 'brightness(0.7)' : 'blur(' +  getBlur(parent)  + 'px)'
+        child.style.filter = isBackground ? 'none' : 'blur(' +  getBlur(blend)  + 'px)'
         child.style.pointerEvents = 'none'
-        child.style.transform = isBackground ? 'none' : 'scale(1.3)'
+        child.style.transform = isBackground ? 'none' : 'scale(1.8)'
+        child.style.transformOrigin = getOrigin(i)
         child.style.height = isBackground ? '100%' : (parent.getBoundingClientRect().height / 2) + 'px'
-        child.style.borderRadius = isBackground ? parent.style.borderRadius : '100%'
+        child.style.borderRadius = isBackground ? parent.style.borderRadius : '0%'
         parent.appendChild(child)
     }
-    function getBlur (parent) {
-        return parent.getBoundingClientRect().height > parent.getBoundingClientRect().width ? parent.getBoundingClientRect().height/8 : parent.getBoundingClientRect().width/8
+    function getOrigin (i) {
+        switch (i) {
+            case 0:
+            return 'right bottom'
+            case 1:
+            return 'left bottom'
+            case 2:
+            return 'right top'
+            case 3:
+            return 'left top'
+        }
+        
+    }
+    function getBlur (blend) {
+        switch (blend) {
+            case 'smooth':
+            return '50'
+            case 'smoother':
+            return '100'
+            case 'smoothest':
+            return '200'
+            default:
+            return '50'
+        }
     }
 }

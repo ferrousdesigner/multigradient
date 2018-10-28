@@ -1,6 +1,6 @@
 {
   "name": "multigradient",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A utility to add multiple points gradient background to elements.",
   "main": "lib/index.js",
   "scripts": {
